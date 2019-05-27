@@ -4,7 +4,6 @@ import MySQLdb
 from telebot import apihelper
 
 bot = telebot.TeleBot("805627194:AAG3Eptl1E48WijSQ3tejTqi8J6lY48sxRU")
-apihelper.proxy = {'https':'https://89.238.190.164:3128'}
 db = MySQLdb.connect(host="aa6bkyeme6tejq.c1amhyf5jdyt.us-east-2.rds.amazonaws.com",    # localhost
                 user="userDB",         #  username
                  passwd="020896lumen",  #  password
