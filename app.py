@@ -22,18 +22,21 @@ def send_help(message):
 
 @bot.message_handler(commands=['myvoices'])
 def count_voices(message):
-    cur.execute('SELECT voice_name FROM voices where user_create_id = %s', (str(message.from_user.id), ))
-    data = cur.fetchall()
-    db.commit()
-    print(data)
-    voice_names='['
-    for item in data:
-        if item != data[-1]:
-            voice_names = voice_names + item[0] + ', '
-        else:
-            voice_names = voice_names + item[0] + ']'
-    answer=str(message.from_user.id)+ ' --> ' + voice_names
-    bot.reply_to(message,answer ) 
+    try:
+        cur.execute('SELECT voice_name FROM voices where user_create_id = %s', (str(message.from_user.id), ))
+        data = cur.fetchall()
+        db.commit()
+        print(data)
+        voice_names='['
+        for item in data:
+            if item != data[-1]:
+                voice_names = voice_names + item[0] + ', '
+            else:
+                voice_names = voice_names + item[0] + ']'
+        answer=str(message.from_user.id)+ ' --> ' + voice_names
+        bot.reply_to(message,answer )
+    except Exception as e:
+        bot.reply_to(message,e)
 
 
 @bot.message_handler(content_types=['voice'])
