@@ -1,7 +1,6 @@
 import telebot
 import os
 import MySQLdb
-from telebot import apihelper
 
 bot = telebot.TeleBot("805627194:AAG3Eptl1E48WijSQ3tejTqi8J6lY48sxRU")
 db = MySQLdb.connect(host="aa6bkyeme6tejq.c1amhyf5jdyt.us-east-2.rds.amazonaws.com",    # localhost
